@@ -45,20 +45,19 @@ public class MainActivity extends AppCompatActivity {
 
         View view = LayoutInflater.from(this).inflate(R.layout.edit_text, null);
         final EditText commentEditText = (EditText) view.findViewById(R.id.text_input);
-        //switch (menu.getItemId()) {
-          //  case R.id.search_bar:
+
                 AlertDialog.Builder alertDialog = new AlertDialog.Builder(this);
                 alertDialog.setTitle("Search for tracks");
                 alertDialog.setView(commentEditText);
                 alertDialog.setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        /*mQuery = commentEditText.getText().toString();
-                        getSupportFragmentManager().beginTransaction().replace(R.id.container,
+                        mQuery = commentEditText.getText().toString();
+                        /*getSupportFragmentManager().beginTransaction().replace(R.id.container,
                                 createCustomFragment(new SearchFragment(), mQuery)).commit();*/
 
 
-                        //suraj
+
                         FragmentManager fm = getSupportFragmentManager();
 
                         Fragment SearchFragment = new SearchFragment();
@@ -69,12 +68,11 @@ public class MainActivity extends AppCompatActivity {
 
                     }
                 );
-                       /* alertDialog.setNegativeButton(android.R.string.cancel, null)
-                        .create();*/
+                       alertDialog.setNegativeButton(android.R.string.cancel, null)
+                        .create();
 
                 alertDialog.show();
-              //  return true;
-            //default:
+
                 return super.onOptionsItemSelected(menu);
         }
 

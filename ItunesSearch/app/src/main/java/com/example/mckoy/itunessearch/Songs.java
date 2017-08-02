@@ -22,14 +22,15 @@ public class Songs {
             mtrackName = articleObj.getString("trackName");
             martistName = articleObj.getString("artistName");
             mcollectionName = articleObj.getString("collectionName");
-            mpreviewUrl = articleObj.getString("previewURL");
-            mtrackViewUrl = articleObj.getString("trackViewURL");
+            mtrackViewUrl = articleObj.getString("trackViewUrl");
+            mpreviewUrl = articleObj.getString("previewUrl");
+            martworkUrl60 = articleObj.getString("artworkUrl60");
 
             // There may or may not be a body text snippet in the response, so check before trying
             // to use it.
-            if (articleObj.has("artworkUrl60")) {
-                martworkUrl60 = articleObj.getString("artworkworkUrl60");
-            }
+            //if (articleObj.has("artworkUrl60")) {
+              //  martworkUrl60 = articleObj.getString("artworkworkUrl60");
+            //}
 
 
         } catch (JSONException e) {

@@ -62,11 +62,11 @@ public class ItunesSource {
     }
 
 
-        public void getSongs(SongListener songListener) {
+        public void getSongs(String query, SongListener songListener) {
         final SongListener songListenerInternal = songListener;
             Log.i("asd", "Hey I am Ashley");
         //String url = "https://itunes.apple.com/search?term=" + query + "&entity=musicTrack";
-            String url = "https://itunes.apple.com/search?term=beyonce&entity=musicTrack";
+            String url = "https://itunes.apple.com/search?term=" + query + "&entity=musicTrack";
         JsonObjectRequest jsonObjRequest = new JsonObjectRequest
                 (Request.Method.GET, url, null, new Response.Listener<JSONObject>() {
                     @Override

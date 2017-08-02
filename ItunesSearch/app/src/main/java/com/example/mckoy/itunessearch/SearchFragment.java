@@ -45,7 +45,7 @@ public class SearchFragment extends Fragment {
     private ListView mListView;
     private TextView mTextField;
     //private String mQuery;
-    //public final static String QUERY_KEY = "query";
+    public final static String QUERY_KEY = "query";
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
@@ -54,7 +54,7 @@ public class SearchFragment extends Fragment {
         mTextField = (TextView)v.findViewById(R.id.text_view);
         mAdapter = new ItunesItemAdapter(getActivity());
         mListView.setAdapter(mAdapter);
-        //String query = getArguments().getString(QUERY_KEY);
+        String query = getArguments().getString(QUERY_KEY);
         //mTextField.append(query);
 
 
@@ -64,14 +64,14 @@ public class SearchFragment extends Fragment {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Songs song = (Songs) parent.getAdapter().getItem(position);
                 Intent shareIntent = new Intent(Intent.ACTION_SEND);
-                //shareIntent.setType(getString(R.string.default_setType));
-                //shareIntent.putExtra(Intent.EXTRA_SUBJECT, getString(R.string.default_subject));
-                //shareIntent.putExtra(Intent.EXTRA_TEXT, song.getWebpage());
-                //startActivity(Intent.createChooser(shareIntent, getString(R.string.default_share_mess)));
+                shareIntent.setType(getString(R.string.setType));
+                shareIntent.putExtra(Intent.EXTRA_SUBJECT, getString(R.string.subject));
+                shareIntent.putExtra(Intent.EXTRA_TEXT, song.getTrackViewUrl());
+                startActivity(Intent.createChooser(shareIntent, getString(R.string.share)));
             }
         });
 
-        ItunesSource.get(getContext()).getSongs(new ItunesSource.SongListener() {
+        ItunesSource.get(getContext()).getSongs(query, new ItunesSource.SongListener() {
             @Override
             public void onSongResponse(List<Songs> songList) {
 
@@ -141,7 +141,7 @@ public class SearchFragment extends Fragment {
         private Context mContext;
         private List<Songs> mDataSource;
         private LayoutInflater mInflater;
-        //private NetworkImageView imageView;
+        private NetworkImageView imageView;
         public ItunesItemAdapter(Context context) {
             mContext = context;
             mDataSource = new ArrayList<>();

@@ -1,4 +1,7 @@
 <resources>
     <string name="app_name">iTunesSearch-mckoy</string>
     <string name="search">search</string>
+    <string name="setType">text/plain</string>
+    <string name="subject">This track is good!</string>
+    <string name="share">Share link using</string>
 </resources>
