@@ -7,28 +7,28 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 public class Songs {
-    protected String kind;
-    protected String trackName;
-    protected String artistName;
-    protected String collectionName;
-    protected String previewUrl;
-    protected String artworkUrl60;
-    protected String trackViewUrl;
+    protected String mkind;
+    protected String mtrackName;
+    protected String martistName;
+    protected String mcollectionName;
+    protected String mpreviewUrl;
+    protected String martworkUrl60;
+    protected String mtrackViewUrl;
 
     public Songs(JSONObject articleObj) {
         try {
             // We expect that these two keys will be in the response.
-            kind = articleObj.getString("content");
-            trackName = articleObj.getString("track");
-            artistName = articleObj.getString("artist");
-            collectionName = articleObj.getString("albumTitle");
-            previewUrl = articleObj.getString("preview");
-            trackViewUrl = articleObj.getString("trackView");
+            mkind = articleObj.getString("kind");
+            mtrackName = articleObj.getString("trackName");
+            martistName = articleObj.getString("artistName");
+            mcollectionName = articleObj.getString("collectionName");
+            mpreviewUrl = articleObj.getString("previewURL");
+            mtrackViewUrl = articleObj.getString("trackViewURL");
 
             // There may or may not be a body text snippet in the response, so check before trying
             // to use it.
-            if (articleObj.has("artwork")) {
-                artworkUrl60 = articleObj.getString("artwork");
+            if (articleObj.has("artworkUrl60")) {
+                martworkUrl60 = articleObj.getString("artworkworkUrl60");
             }
 
 
@@ -38,28 +38,28 @@ public class Songs {
 
     }
 
-    public String getKind() { return kind; }
+    public String getKind() { return mkind; }
 
     public String getTrackName() {
-        return trackName;
+        return mtrackName;
     }
 
     public String getArtistName() {
-        return artistName;
+        return martistName;
     }
 
     public String getCollectionName() {
-        return collectionName;
+        return mcollectionName;
     }
 
-    public String getPreviewUrl() { return previewUrl; }
+    public String getPreviewUrl() { return mpreviewUrl; }
 
     public String getArtworkUrl60() {
-        return artworkUrl60;
+        return martworkUrl60;
     }
 
     public String getTrackViewUrl() {
-        return trackViewUrl;
+        return mtrackViewUrl;
     }
 
 }

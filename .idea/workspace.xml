@@ -2,13 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a3418e75-b837-4f28-a6ee-db10cd44fbc9" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ItunesSearch/app/build.gradle" afterPath="$PROJECT_DIR$/ItunesSearch/app/build.gradle" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ItunesSearch/app/src/main/AndroidManifest.xml" afterPath="$PROJECT_DIR$/ItunesSearch/app/src/main/AndroidManifest.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ItunesSearch/app/src/main/java/com/android/volley/toolbox/NetworkImageView.java" afterPath="$PROJECT_DIR$/ItunesSearch/app/src/main/java/com/android/volley/toolbox/NetworkImageView.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ItunesSearch/app/src/main/java/com/example/mckoy/itunessearch/ItunesSource.java" afterPath="$PROJECT_DIR$/ItunesSearch/app/src/main/java/com/example/mckoy/itunessearch/ItunesSource.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ItunesSearch/app/src/main/java/com/example/mckoy/itunessearch/MainActivity.java" afterPath="$PROJECT_DIR$/ItunesSearch/app/src/main/java/com/example/mckoy/itunessearch/MainActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ItunesSearch/app/src/main/res/layout/activity_main.xml" afterPath="$PROJECT_DIR$/ItunesSearch/app/src/main/res/layout/activity_main.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ItunesSearch/app/src/main/res/values/strings.xml" afterPath="$PROJECT_DIR$/ItunesSearch/app/src/main/res/values/strings.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ItunesSearch/app/src/main/res/values/styles.xml" afterPath="$PROJECT_DIR$/ItunesSearch/app/src/main/res/values/styles.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ItunesSearch/app/src/main/java/com/example/mckoy/itunessearch/SearchFragment.java" afterPath="$PROJECT_DIR$/ItunesSearch/app/src/main/java/com/example/mckoy/itunessearch/SearchFragment.java" />
     </list>
     <ignored path="HW2017MobileDevAssig2.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -63,6 +60,9 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scratches" />
+      <pane id="Scope" />
+      <pane id="ProjectPane" />
       <pane id="AndroidView">
         <subPane>
           <PATH>
@@ -78,9 +78,6 @@
         </subPane>
       </pane>
       <pane id="PackagesPane" />
-      <pane id="Scope" />
-      <pane id="ProjectPane" />
-      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">

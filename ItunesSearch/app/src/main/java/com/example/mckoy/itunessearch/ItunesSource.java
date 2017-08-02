@@ -2,6 +2,7 @@ package com.example.mckoy.itunessearch;
 
 import android.content.Context;
 import android.graphics.Bitmap;
+import android.util.Log;
 import android.util.LruCache;
 import android.widget.Toast;
 
@@ -13,11 +14,11 @@ import com.android.volley.toolbox.ImageLoader;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 
 /**
@@ -26,18 +27,17 @@ import java.util.List;
 
 public class ItunesSource {
 
-    public interface SongListener {
-        void onSongResponse(List<Songs> iTunesList);
-    }
 
     private final static int IMAGE_CACHE_COUNT = 100;
-    private final static int iTunes_REQUEST_COUNT = 25;
-    private final static int iTunes_REQUEST_IMAGE_WIDTH = 400;
     private static ItunesSource sItunesSourceInstance;
-
     private Context mContext;
     private RequestQueue mRequestQueue;
     private ImageLoader mImageLoader;
+
+    public interface SongListener {
+        void onSongResponse(List<Songs> songList);
+    }
+
 
     public static ItunesSource get(Context context) {
         if (sItunesSourceInstance == null) {
@@ -61,12 +61,12 @@ public class ItunesSource {
         });
     }
 
-    public void getSongs(SongListener songListener) {
+
+        public void getSongs(SongListener songListener) {
         final SongListener songListenerInternal = songListener;
-        // URL for requesting articles from Wikipedia. This requests N random articles, with a short
-        // text extract (rather than the whole article text), with a main thumbnail image of size M,
-        // and with metadata including a link to the wikipedia article itself.
-        String url = "https://itunes.apple.com/search?term=<your search term>&entity=musicTrack";
+            Log.i("asd", "Hey I am Ashley");
+        //String url = "https://itunes.apple.com/search?term=" + query + "&entity=musicTrack";
+            String url = "https://itunes.apple.com/search?term=beyonce&entity=musicTrack";
         JsonObjectRequest jsonObjRequest = new JsonObjectRequest
                 (Request.Method.GET, url, null, new Response.Listener<JSONObject>() {
                     @Override
@@ -74,14 +74,13 @@ public class ItunesSource {
                         try {
                             List<Songs> songList = new ArrayList<Songs>();
                             // Get the map of articles, keyed by article id.
-                            JSONObject songObj = response.getJSONObject("query").getJSONObject("pages");
-                            Iterator<String> it = songObj.keys();
-                            while (it.hasNext()) {
-                                String key = it.next();
-                                JSONObject songObject = songObj.getJSONObject(key);
-                                Songs isong = new Songs(songObject);
-                                songList.add(isong);
+                            Log.i("aa", response.toString());
+                            JSONArray songObj = response.getJSONArray("results");
+                            for (int i = 0; i < songObj.length(); i++){
+                                Songs song = new Songs(songObj.getJSONObject(i));
+                                songList.add(song);
                             }
+
                             songListenerInternal.onSongResponse(songList);
                         } catch (JSONException e) {
                             e.printStackTrace();
